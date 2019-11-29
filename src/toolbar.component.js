@@ -12,7 +12,9 @@ const { FlashMode: CameraFlashModes, Type: CameraTypes } = Camera.Constants;
 export default ({ 
     capturing = false, 
     cameraType = CameraTypes.back, 
+    //cameraType = back,
     flashMode = CameraFlashModes.off, 
+    //flashMode = off,
     setFlashMode, setCameraType, 
     onCaptureIn, onCaptureOut, onLongCapture, onShortCapture, 
 }) => (
@@ -20,10 +22,12 @@ export default ({
         <Row>
             <Col style={styles.alignCenter}>
                 <TouchableOpacity onPress={() => setFlashMode( 
-                    flashMode === CameraFlashModes.on ? CameraFlashModes.off : CameraFlashModes.on 
+                    flashMode === CameraFlashModes.on ? CameraFlashModes.off : CameraFlashModes.on
+                    //flashMode === CameraFlashModes.on ? off : on
                 )}>
                     <Ionicons
                         name={flashMode == CameraFlashModes.on ? "md-flash" : 'md-flash-off'}
+                        // name={flashMode == on ? "md-flash" : 'md-flash-off'}
                         color="white"
                         size={30}
                     />
@@ -43,6 +47,7 @@ export default ({
             <Col style={styles.alignCenter}>
                 <TouchableOpacity onPress={() => setCameraType(
                     cameraType === CameraTypes.back ? CameraTypes.front : CameraTypes.back
+                    //cameraType === CameraTypes.back ? front : back
                 )}>
                     <Ionicons
                         name="md-reverse-camera"
